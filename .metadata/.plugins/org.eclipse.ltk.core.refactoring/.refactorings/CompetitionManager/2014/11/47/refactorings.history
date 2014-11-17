@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;uk.ac.aber.dcs.chh57.cs21120.assignment1.Queue.java&apos; to &apos;ArrayQueue.java&apos;&#x0D;&#x0A;- Original project: &apos;CompetitionManager&apos;&#x0D;&#x0A;- Original element: &apos;uk.ac.aber.dcs.chh57.cs21120.assignment1.Queue.java&apos;&#x0D;&#x0A;- Renamed element: &apos;uk.ac.aber.dcs.chh57.cs21120.assignment1.ArrayQueue.java&apos;" description="Rename compilation unit &apos;Queue.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;uk.ac.aber.dcs.chh57.cs21120.assignment1{Queue.java" name="ArrayQueue.java" references="false" stamp="1416230090972" version="1.0"/>
+</session>

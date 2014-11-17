@@ -8,9 +8,6 @@ public class SingleElimination implements IManager {
 
 	public void setPlayers(ArrayList<String> players) {
 		 Queue<String> totalQueue = new LinkedList<String>();
-		 for (ArrayList<String> i = players; i >= 0; i--)
-	            queue.add(i);
-
 
 	}
 
