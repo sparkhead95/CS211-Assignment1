@@ -28,7 +28,7 @@ public class SingleElimination implements IManager {
 	}
 
 	public Match nextMatch() throws NoNextMatchException {
-		Match match = new Match((String)totalPlayersQueue.deQ(),(String)totalPlayersQueue.deQ());
+		// TODO Auto-generated method stub
 		return null;
 	}
 

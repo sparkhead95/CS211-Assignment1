@@ -18,7 +18,8 @@ public class ArrayQueue {
 		 if (tail == queue.length) tail=0; 
 		 }
 	 
-	 public Object deQ() {  
+	 public Object deQ() throws QueueEmptyException { 
+		 if (isEmpty()) throw new QueueEmptyException(); 
 		 Object o = queue[head]; 
 		 queue[head]=null; 
 		 head++; 
