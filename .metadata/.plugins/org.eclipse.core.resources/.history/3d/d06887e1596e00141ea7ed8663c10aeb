@@ -1,13 +1,11 @@
 package uk.ac.aber.dcs.chh57.cs21120.assignment1;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class SingleElimination implements IManager {
 
 	public void setPlayers(ArrayList<String> players) {
-		 Queue<String> totalQueue = new LinkedList<String>();
+		// TODO Auto-generated method stub
 
 	}
 
