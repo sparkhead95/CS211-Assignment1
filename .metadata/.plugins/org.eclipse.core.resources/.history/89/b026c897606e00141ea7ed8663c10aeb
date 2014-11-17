@@ -20,11 +20,8 @@ public class SingleElimination implements IManager {
 	}
 
 	public boolean hasNextMatch() {
-		if (totalPlayersQueue.length < 2){
-			return false;
-		}
-		else return true;
-		
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	public Match nextMatch() throws NoNextMatchException {

@@ -20,7 +20,7 @@ public class SingleElimination implements IManager {
 	}
 
 	public boolean hasNextMatch() {
-		if (totalPlayersQueue.length < 2){
+		if (totalPlayersQueue < 2){
 			return false;
 		}
 		else return true;
