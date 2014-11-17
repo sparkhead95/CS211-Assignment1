@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/Competition Manager/src/uk/ac/aber/dcs/chh57/cs21120/assignment1/CompetitionManager.java"/>
+<listEntry value="/CompetitionManager/src/uk/ac/aber/dcs/chh57/cs21120/assignment1/CompetitionManager.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="uk.ac.aber.dcs.chh57.cs21120.assignment1.CompetitionManager"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="uk.ac.aber.dcs.chh57.cs21120.assignment1.SingleElimination&#13;&#10;M://CS211-Assignment1//Competition_Manager//src//uk//ac//aber//dcs//chh57//cs21120//assignment1//Teams.txt"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Competition Manager"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="uk.ac.aber.dcs.chh57.cs21120.assignment1.SingleElimination&#13;&#10;M:\\CS211-Assignment1\\CompetitionManager\\src\\uk\\ac\\aber\\dcs\\chh57\\cs21120\\assignment1\\Teams.txt"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="CompetitionManager"/>
 </launchConfiguration>
