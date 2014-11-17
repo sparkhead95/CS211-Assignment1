@@ -5,17 +5,10 @@ import java.util.LinkedList;
 
 public class SingleElimination implements IManager {
 
-	private ArrayQueue totalPlayersQueue;
-	
-	
-	
 	public void setPlayers(ArrayList<String> players) {
-		 totalPlayersQueue = new ArrayQueue(players.size());
-		 for (String player : players) {
-			 totalPlayersQueue.enQ(player);
-			 System.out.println(player);
-		 }
-	          
+		 ArrayQueue<String> totalQueue = new LinkedList<String>();
+		 for (ArrayList<String> i = players; i >= 0; i--)
+	            queue.add(i);
 
 
 	}

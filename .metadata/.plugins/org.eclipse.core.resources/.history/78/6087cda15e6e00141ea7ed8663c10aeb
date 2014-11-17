@@ -12,8 +12,7 @@ public class SingleElimination implements IManager {
 	public void setPlayers(ArrayList<String> players) {
 		 totalPlayersQueue = new ArrayQueue(players.size());
 		 for (String player : players) {
-			 totalPlayersQueue.enQ(player);
-			 System.out.println(player);
+			 ArrayQueue.enQ(player);
 		 }
 	          
 

@@ -32,6 +32,7 @@ public class CompetitionManager {
             System.exit(0);
         }
         ArrayList<String> competitors = readPlayers(args[1]);
+        System.out.println(competitors);
 
         Scanner in = new Scanner(System.in);
         manager.setPlayers(competitors);
