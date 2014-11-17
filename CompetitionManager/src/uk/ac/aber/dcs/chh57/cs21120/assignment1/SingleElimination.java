@@ -29,7 +29,7 @@ public class SingleElimination implements IManager {
 
 	public Match nextMatch() throws NoNextMatchException {
 		Match match = new Match((String)totalPlayersQueue.deQ(),(String)totalPlayersQueue.deQ());
-		return null;
+		return match;
 	}
 
 	public void setMatchWinner(boolean player1) {
