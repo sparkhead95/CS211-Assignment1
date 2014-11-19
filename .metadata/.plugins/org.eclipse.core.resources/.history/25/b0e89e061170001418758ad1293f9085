@@ -29,7 +29,6 @@ public class SingleElimination implements IManager {
 	}
 
 	public Match nextMatch() throws NoNextMatchException {
-		// Assign local variables for first and second current matched players
 		matchedPlayer1 = (String)totalPlayersQueue.deQ();
 		matchedPlayer2 = (String)totalPlayersQueue.deQ();
 		Match match = new Match(matchedPlayer1,matchedPlayer2);
