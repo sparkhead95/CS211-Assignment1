@@ -6,7 +6,8 @@ import java.util.LinkedList;
 public class SingleElimination implements IManager {
 
 	private ArrayQueue totalPlayersQueue;
-	
+	String matchedPlayer1;
+    String matchedPlayer2;
 	
 	
 	public void setPlayers(ArrayList<String> players) {
@@ -28,7 +29,9 @@ public class SingleElimination implements IManager {
 	}
 
 	public Match nextMatch() throws NoNextMatchException {
-		Match match = new Match((String)totalPlayersQueue.deQ(),(String)totalPlayersQueue.deQ());
+		matchedPlayer1 = (String)totalPlayersQueue.deQ();
+		matchedPlayer2 = (String)totalPlayersQueue.deQ();
+		Match match = new Match(matchedPlayer1,matchedPlayer2);
 		return match;
 	}
 
