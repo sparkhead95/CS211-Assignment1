@@ -7,6 +7,6 @@
 <listEntry value="1"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="uk.ac.aber.dcs.chh57.cs21120.assignment1.CompetitionManager"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="uk.ac.aber.dcs.chh57.cs21120.assignment1.SingleElimination&#13;&#10;M:\\CS211-Assignment1\\CompetitionManager\\src\\uk\\ac\\aber\\dcs\\chh57\\cs21120\\assignment1\\Teams.txt"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="uk.ac.aber.dcs.chh57.cs21120.assignment1.SingleElimination&#13;&#10;&quot;C:\\Users\\Christian\\Documents\\My Work\\CS211-Assignment1\\CompetitionManager\\src\\uk\\ac\\aber\\dcs\\chh57\\cs21120\\assignment1\\Teams.txt&quot;"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="CompetitionManager"/>
 </launchConfiguration>

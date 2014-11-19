@@ -6,7 +6,6 @@ import java.util.LinkedList;
 public class SingleElimination implements IManager {
 
 	private ArrayQueue totalPlayersQueue;
-	boolean queueCompleted = false;
 	String matchedPlayer1;
     String matchedPlayer2;
 	
@@ -38,23 +37,13 @@ public class SingleElimination implements IManager {
 	}
 
 	public void setMatchWinner(boolean player1) {
-		if (totalPlayersQueue.length() == 0) {
-			queueCompleted = true;
-		}
-		
-		if (player1 == true){
-			totalPlayersQueue.enQ(matchedPlayer1);
-            //addRunnerUp(matchedPlayer2);
-        }else{
-        	totalPlayersQueue.enQ(matchedPlayer2);
-            //addRunnerUp(currentMatchPlayer1);
-        }
-        System.out.println(totalPlayersQueue.length());
+		// TODO Auto-generated method stub
+
 	}
 
 	public String getPosition(int n) {
-		return (totalPlayersQueue.deQ().toString());
-		
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
