@@ -24,7 +24,7 @@ public class DoubleElimination implements IManager {
 	}
 
 	public boolean hasNextMatch() {
-		if ((winnersQueue.length() < 1) && (losersQueue.length() < 1) || (queueCompleted)){
+		if ((winnersQueue.length() < 1) || (winnersQueue.length() < 1) || (queueCompleted)){
 			return false;
 		}
 		else return true;

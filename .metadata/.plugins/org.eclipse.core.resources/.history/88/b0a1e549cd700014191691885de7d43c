@@ -24,7 +24,7 @@ public class DoubleElimination implements IManager {
 	}
 
 	public boolean hasNextMatch() {
-		if ((winnersQueue.length() < 1) && (losersQueue.length() < 1) || (queueCompleted)){
+		if ((winnersQueue.length() < 1) || (losersQueue.length() < 1) || (queueCompleted)){
 			return false;
 		}
 		else return true;
@@ -55,10 +55,8 @@ public class DoubleElimination implements IManager {
 		}
 		if (player1 == true){
 			winnersQueue.enQ(matchedPlayer1);
-			losersQueue.enQ(matchedPlayer2);
         }else{
-        	winnersQueue.enQ(matchedPlayer2); 
-        	winnersQueue.enQ(matchedPlayer1); 
+        	winnersQueue.enQ(matchedPlayer2);           
         }
         System.out.println("In the winners queue there are: " + winnersQueue.length());
         System.out.println("In the losers queue there are: " + losersQueue.length());
