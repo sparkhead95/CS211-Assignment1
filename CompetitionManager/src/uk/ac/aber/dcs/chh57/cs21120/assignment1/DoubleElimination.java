@@ -14,16 +14,17 @@ public class DoubleElimination implements IManager {
 	
 	public void setPlayers(ArrayList<String> players) {
 		winnersQueue = new ArrayQueue(players.size());
+		losersQueue = new ArrayQueue(4);
 		 for (String player : players) {
 			 winnersQueue.enQ(player);
-			 System.out.println(player);
+			 //System.out.println(player);
 		 }
 		 System.out.println("------------");
 	    
 	}
 
 	public boolean hasNextMatch() {
-		if ((winnersQueue.length() < 1) || (losersQueue.length() < 1) || (queueCompleted)){
+		if ((winnersQueue.length() < 1) || (queueCompleted)){
 			return false;
 		}
 		else return true;
@@ -36,25 +37,41 @@ public class DoubleElimination implements IManager {
 			matchedPlayer2 = (String)losersQueue.deQ();
 			queueCompleted = true;
 		}
-		else if (losersQueue.length() < winnersQueue.length()){
-			matchedPlayer1 = (String)winnersQueue.deQ();
-			matchedPlayer2 = (String)winnersQueue.deQ();
-		}
-		else {
+		else if (losersQueue.length() > winnersQueue.length()) {
 			matchedPlayer1 = (String)losersQueue.deQ();
 			matchedPlayer2 = (String)losersQueue.deQ();
+		}
+		else {
+			matchedPlayer1 = (String)winnersQueue.deQ();
+			matchedPlayer2 = (String)winnersQueue.deQ();
 		}
 		Match match = new Match(matchedPlayer1,matchedPlayer2);
 		return match;
 	}
 
 	public void setMatchWinner(boolean player1) {
-		
+		if (winnersQueue.length() == 0) {
+			queueCompleted = true;
+		}
+		if (player1 == true){
+			winnersQueue.enQ(matchedPlayer1);
+        }else{
+        	winnersQueue.enQ(matchedPlayer2);           
+        }
+        System.out.println("In the winners queue there are: " + winnersQueue.length());
+        System.out.println("In the losers queue there are: " + losersQueue.length());
 
 	}
 
 	public String getPosition(int n) {
-		return (podiumQueue.deQ().toString());
+		if (queueCompleted == true) {
+			switch(n){
+			case 0: return (winnersQueue.deQ().toString());
+			case 1: return (losersQueue.deQ().toString());
+			}
+		}
+		else System.out.println("The game isn't finished...? Something went wrong.");
+		return null;
 	}
 
 }
