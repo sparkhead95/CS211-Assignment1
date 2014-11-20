@@ -10,6 +10,8 @@ public class DoubleElimination implements IManager {
 	boolean queueCompleted = false;
 	String matchedPlayer1;
     String matchedPlayer2;
+    String posPlayer1 = "";
+	String posPlayer2 = "";
 	
 	
 	public void setPlayers(ArrayList<String> players) {
@@ -24,7 +26,7 @@ public class DoubleElimination implements IManager {
 	}
 
 	public boolean hasNextMatch() {
-		if ((winnersQueue.length() < 1) && (losersQueue.length() < 1) || (queueCompleted)){
+		if ((winnersQueue.length() < 1) || (queueCompleted)){
 			return false;
 		}
 		else return true;
@@ -34,16 +36,22 @@ public class DoubleElimination implements IManager {
 		// Assign local variables for first and second current matched players
 		if (losersQueue.length() == 1 && winnersQueue.length() == 1) {
 			matchedPlayer1 = (String)winnersQueue.deQ();
+			posPlayer1 = "winner";
 			matchedPlayer2 = (String)losersQueue.deQ();
+			posPlayer2 = "loser";
 			queueCompleted = true;
 		}
 		else if (losersQueue.length() > winnersQueue.length()) {
 			matchedPlayer1 = (String)losersQueue.deQ();
+			posPlayer1 = "loser";
 			matchedPlayer2 = (String)losersQueue.deQ();
+			posPlayer2 = "loser";
 		}
 		else {
 			matchedPlayer1 = (String)winnersQueue.deQ();
+			posPlayer1 = "winner";
 			matchedPlayer2 = (String)winnersQueue.deQ();
+			posPlayer2 = "winner";
 		}
 		Match match = new Match(matchedPlayer1,matchedPlayer2);
 		return match;
@@ -55,10 +63,13 @@ public class DoubleElimination implements IManager {
 		}
 		if (player1 == true){
 			winnersQueue.enQ(matchedPlayer1);
-			losersQueue.enQ(matchedPlayer2);
+			if (posPlayer2 == "loser"){
+				// Do nothing, leave them de queued.
+			}
+			else{ losersQueue.enQ(matchedPlayer2); }
         }else{
         	winnersQueue.enQ(matchedPlayer2); 
-        	winnersQueue.enQ(matchedPlayer1); 
+        	losersQueue.enQ(matchedPlayer1); 
         }
         System.out.println("In the winners queue there are: " + winnersQueue.length());
         System.out.println("In the losers queue there are: " + losersQueue.length());
