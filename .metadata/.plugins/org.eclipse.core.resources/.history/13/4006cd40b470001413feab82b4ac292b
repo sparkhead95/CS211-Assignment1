@@ -6,7 +6,6 @@ public class DoubleElimination implements IManager {
 
 	private ArrayQueue winnersQueue;
 	private ArrayQueue losersQueue;
-	private ArrayQueue podiumQueue;
 	boolean queueCompleted = false;
 	String matchedPlayer1;
     String matchedPlayer2;
@@ -31,17 +30,12 @@ public class DoubleElimination implements IManager {
 
 	public Match nextMatch() throws NoNextMatchException {
 		// Assign local variables for first and second current matched players
-		if (losersQueue.length() == 1 && winnersQueue.length() == 1) {
-			matchedPlayer1 = (String)winnersQueue.deQ();
-			matchedPlayer2 = (String)losersQueue.deQ();
-			queueCompleted = true;
-		}
-		else if (losersQueue.length() < winnersQueue.length()){
+		if (losersQueue.length() == 0){
 			matchedPlayer1 = (String)winnersQueue.deQ();
 			matchedPlayer2 = (String)winnersQueue.deQ();
 		}
 		else {
-			matchedPlayer1 = (String)losersQueue.deQ();
+			matchedPlayer1 = (String)winnersQueue.deQ();
 			matchedPlayer2 = (String)losersQueue.deQ();
 		}
 		Match match = new Match(matchedPlayer1,matchedPlayer2);
@@ -49,12 +43,13 @@ public class DoubleElimination implements IManager {
 	}
 
 	public void setMatchWinner(boolean player1) {
-		
+		// TODO Auto-generated method stub
 
 	}
 
 	public String getPosition(int n) {
-		return (podiumQueue.deQ().toString());
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

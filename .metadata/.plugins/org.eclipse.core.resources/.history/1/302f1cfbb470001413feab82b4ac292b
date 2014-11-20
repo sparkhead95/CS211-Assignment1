@@ -54,7 +54,7 @@ public class DoubleElimination implements IManager {
 	}
 
 	public String getPosition(int n) {
-		return (podiumQueue.deQ().toString());
+		return (totalPlayersQueue.deQ().toString());
 	}
 
 }
