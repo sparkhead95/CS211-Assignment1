@@ -60,13 +60,9 @@ public class DoubleElimination implements IManager {
 	}
 
 	public void setMatchWinner(boolean player1) {
-		if (player1){
-    		winnersQueue.enQ(matchedPlayer1);
-    		losersQueue.enQ(matchedPlayer2);
-    	}else{
-    		winnersQueue.enQ(matchedPlayer2);
-    		losersQueue.enQ(matchedPlayer1);
-    	}
+		if (winnersQueue.length() == 0) {
+			queueCompleted = true;
+		}
 		if (player1){
 			myQueue.enQ(matchedPlayer1);
 			if (myQueue == winnersQueue){
@@ -74,8 +70,8 @@ public class DoubleElimination implements IManager {
 			}
         }else{
         	myQueue.enQ(matchedPlayer2); 
-        	if (myQueue == winnersQueue){
-        		losersQueue.enQ(matchedPlayer1);
+        	if (posPlayer1 == "loser"){
+				// Do nothing, leave them de queued.
 			}
         	losersQueue.enQ(matchedPlayer1); 
         }

@@ -60,7 +60,7 @@ public class DoubleElimination implements IManager {
 	}
 
 	public void setMatchWinner(boolean player1) {
-		if (player1){
+		if (player1 == true){
     		winnersQueue.enQ(matchedPlayer1);
     		losersQueue.enQ(matchedPlayer2);
     	}else{
