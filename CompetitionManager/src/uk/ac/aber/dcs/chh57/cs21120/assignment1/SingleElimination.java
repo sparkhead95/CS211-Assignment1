@@ -15,7 +15,7 @@ public class SingleElimination implements IManager {
 		 totalPlayersQueue = new ArrayQueue(players.size());
 		 for (String player : players) {
 			 totalPlayersQueue.enQ(player);
-			 System.out.println(player);
+			 //System.out.println(player);
 		 }
 		 System.out.println("------------");
 	          
@@ -44,16 +44,18 @@ public class SingleElimination implements IManager {
 		
 		if (player1 == true){
 			totalPlayersQueue.enQ(matchedPlayer1);
-            //addRunnerUp(matchedPlayer2);
         }else{
-        	totalPlayersQueue.enQ(matchedPlayer2);
-            //addRunnerUp(currentMatchPlayer1);
+        	totalPlayersQueue.enQ(matchedPlayer2);           
         }
-        System.out.println(totalPlayersQueue.length());
+        System.out.println("Total amount of teams in the queue are: " + totalPlayersQueue.length());
 	}
 
 	public String getPosition(int n) {
+		if (n == 1){
+			return null;
+		}
 		return (totalPlayersQueue.deQ().toString());
+		
 		
 	}
 

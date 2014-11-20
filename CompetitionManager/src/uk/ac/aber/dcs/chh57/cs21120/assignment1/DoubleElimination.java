@@ -4,19 +4,42 @@ import java.util.ArrayList;
 
 public class DoubleElimination implements IManager {
 
+	private ArrayQueue winnersQueue;
+	private ArrayQueue losersQueue;
+	boolean queueCompleted = false;
+	String matchedPlayer1;
+    String matchedPlayer2;
+	
+	
 	public void setPlayers(ArrayList<String> players) {
-		// TODO Auto-generated method stub
-
+		winnersQueue = new ArrayQueue(players.size());
+		 for (String player : players) {
+			 winnersQueue.enQ(player);
+			 System.out.println(player);
+		 }
+		 System.out.println("------------");
+	    
 	}
 
 	public boolean hasNextMatch() {
-		// TODO Auto-generated method stub
-		return false;
+		if ((winnersQueue.length() < 1) || (losersQueue.length() < 1) || (queueCompleted)){
+			return false;
+		}
+		else return true;
 	}
 
 	public Match nextMatch() throws NoNextMatchException {
-		// TODO Auto-generated method stub
-		return null;
+		// Assign local variables for first and second current matched players
+		if (losersQueue.length() == 0){
+			matchedPlayer1 = (String)winnersQueue.deQ();
+			matchedPlayer2 = (String)winnersQueue.deQ();
+		}
+		else {
+			matchedPlayer1 = (String)winnersQueue.deQ();
+			matchedPlayer2 = (String)losersQueue.deQ();
+		}
+		Match match = new Match(matchedPlayer1,matchedPlayer2);
+		return match;
 	}
 
 	public void setMatchWinner(boolean player1) {

@@ -39,6 +39,7 @@ public class CompetitionManager {
             Match match = manager.nextMatch();
             System.out.println("Player 1: " + match.getPlayer1());
             System.out.println("Player 2: " + match.getPlayer2());
+            System.out.println("Please enter results respectively.");
             boolean notValidInput = true;
             boolean draw=true;
             int p1score=0, p2score=0;
