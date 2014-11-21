@@ -57,7 +57,6 @@ public class DoubleElimination implements IManager {
                 //posPlayer1 = "winner";
                 matchedPlayer2 = (String)losersQueue.deQ();
                 //posPlayer2 = "winner";
-                winners=false;
         }
         Match match = new Match(matchedPlayer1,matchedPlayer2);
         return match;

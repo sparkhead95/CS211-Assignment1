@@ -12,7 +12,7 @@ public class DoubleElimination implements IManager {
     String matchedPlayer2;
     String posPlayer1 = "";
 	String posPlayer2 = "";
-	boolean winners;
+	boolean div1;
 	
 	
 	public void setPlayers(ArrayList<String> players) {
@@ -41,14 +41,14 @@ public class DoubleElimination implements IManager {
                 matchedPlayer2 = (String)losersQueue.deQ();
                 //posPlayer2 = "loser";
                 queueCompleted = true;
-                winners=true;
+                div1=true;
         }
         else if (winnersQueue.length() > losersQueue.length()) {
                 //myQueue = winnersQueue;
                 matchedPlayer1 = (String)winnersQueue.deQ();
                 //posPlayer1 = "loser";
                 matchedPlayer2 = (String)winnersQueue.deQ();
-                winners=true;
+                div1=true;
                 //posPlayer2 = "loser";
         }
         else {
@@ -57,14 +57,13 @@ public class DoubleElimination implements IManager {
                 //posPlayer1 = "winner";
                 matchedPlayer2 = (String)losersQueue.deQ();
                 //posPlayer2 = "winner";
-                winners=false;
         }
         Match match = new Match(matchedPlayer1,matchedPlayer2);
         return match;
 }
 
 	public void setMatchWinner(boolean player1) {
-		if (winners) {
+		if (div1) {
 			if (player1) {
 				winnersQueue.enQ(matchedPlayer1);
 				losersQueue.enQ(matchedPlayer2);
