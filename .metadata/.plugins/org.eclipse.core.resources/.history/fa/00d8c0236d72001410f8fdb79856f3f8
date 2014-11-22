@@ -5,15 +5,13 @@
 
 package uk.ac.aber.dcs.bpt.cs21120.assignment1;
 
-import java.util.ArrayList;
-
 /**
  * Get the indicated competition manager
  * @author bpt
  */
 public class IManagerFactory {
     
-	/**
+    /**
      * Method to get the competition manager
      * @param className indicates the name of the class you would like returned, including full package name
      * @return returns an IManager

@@ -43,6 +43,7 @@ public class SingleEliminationTest {
 	public void testHasNextMatch() {
 		teams.clear();
 		assertFalse("queue must be more than one to have a next match",manager.hasNextMatch());
+		fail("Not yet implemented");
 	}
 
 	@Test
