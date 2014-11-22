@@ -50,7 +50,7 @@ public class SingleEliminationTest {
 	@Test
 	public void testNextMatch() {
 		Match m = manager.nextMatch();
-		assertNotSame("Two players cannot be the same", m.getPlayer1(), m.getPlayer2());
+		assertSame("player 1 must be the one that was deQ", m.getPlayer1(), Queue.deQ());
 	}
 
 	@Test
