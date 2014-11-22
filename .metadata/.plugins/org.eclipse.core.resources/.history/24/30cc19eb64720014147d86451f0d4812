@@ -12,10 +12,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
 
-import uk.ac.aber.dcs.bpt.cs21120.assignment1.IManager;
-import uk.ac.aber.dcs.bpt.cs21120.assignment1.IManagerFactory;
-import uk.ac.aber.dcs.bpt.cs21120.assignment1.Match;
-
 /**
  * Main program to run a competition
  * @author bpt

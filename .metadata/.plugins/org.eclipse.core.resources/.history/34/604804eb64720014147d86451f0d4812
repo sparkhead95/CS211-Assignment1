@@ -1,7 +1,5 @@
 package uk.ac.aber.dcs.chh57.cs21120.assignment1;
 
-import uk.ac.aber.dcs.bpt.cs21120.assignment1.QueueEmptyException;
-
 public class ArrayQueue { 
 	 Object[] queue; 
 	 int head, tail, length; 
