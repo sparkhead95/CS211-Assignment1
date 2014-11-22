@@ -42,7 +42,6 @@ public class SingleEliminationTest {
 		SingleElimination test = new SingleElimination();
 		Field field = SingleElimination.class.getDeclaredField("totalPlayersQueue");
         field.setAccessible(true);
-        Object teams = field.get(test);
 		teams.clear();
 		assertFalse("queue must be more than two to have a next match", manager.hasNextMatch());
 	}
