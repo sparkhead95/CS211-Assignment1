@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,9 +32,6 @@ public class SingleEliminationTest {
 	public void init(){
 		try{
 			teams = CompetitionManager.readPlayers("M:\\CS211-Assignment1\\CompetitionManager\\src\\uk\\ac\\aber\\dcs\\chh57\\cs21120\\assignment1\\Teams.txt");
-		}
-		catch(IOException e){
-			System.out.println("system error:" + e);
 		}
 		
 		
