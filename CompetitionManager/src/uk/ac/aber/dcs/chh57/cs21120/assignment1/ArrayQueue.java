@@ -25,8 +25,8 @@ public class ArrayQueue {
 		 if (head==queue.length) head=0; 
 		 length--; 
 		 return o; 
-		 } 
-	 
+		 }
+	 	 
 	 public Object front() throws QueueEmptyException { 
 		 if (isEmpty()) throw new QueueEmptyException(); 
 		 return queue[head]; 

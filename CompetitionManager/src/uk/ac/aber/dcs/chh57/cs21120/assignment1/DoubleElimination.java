@@ -96,5 +96,5 @@ public class DoubleElimination implements IManager {
 		else System.out.println("The game isn't finished...? Something went wrong.");
 		return null;
 	}
-
+	
 }
