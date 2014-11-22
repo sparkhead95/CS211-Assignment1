@@ -15,11 +15,11 @@ public class SingleEliminationTest {
 	
 	private IManager manager;
 	private ArrayList<String> teams;
-	private ArrayQueue Queue;
+	
 	
 	
 	@Before
-	public void preReqs() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
+	public void preReqs(){
 		try{
 			teams = CompetitionManager.readPlayers("M:\\CS211-Assignment1\\CompetitionManager\\src\\uk\\ac\\aber\\dcs\\chh57\\cs21120\\assignment1\\Teams.txt");
 		}
@@ -30,9 +30,10 @@ public class SingleEliminationTest {
 		manager = IManagerFactory.getManager("uk.ac.aber.dcs.chh57.cs21120.assignment1.SingleElimination");
 		manager.setPlayers(teams);
 		
-		Field field = manager.getClass().getDeclaredField("totalPlayersQueue");
+		SingleElimination test = new SingleElimination();
+		Field field = SingleElimination.class.getDeclaredField("totalPlayersQueue");
         field.setAccessible(true);
-        Queue = (ArrayQueue) field.get(manager);
+        ArrayQueue teams = field.get(test);
 	}
 	
 	
@@ -42,15 +43,15 @@ public class SingleEliminationTest {
 	}
 
 	@Test
-	public void testHasNextMatch(){
-		Queue.clear();
+	public void testHasNextMatch() throws NoSuchFieldException, SecurityException {
+		
+		teams.clear();
 		assertFalse("queue must be more than two to have a next match", manager.hasNextMatch());
 	}
 
 	@Test
 	public void testNextMatch() {
-		Match m = manager.nextMatch();
-		assertSame("Two players cannot be the same", m.getPlayer1(), m.getPlayer2());
+		
 	}
 
 	@Test
