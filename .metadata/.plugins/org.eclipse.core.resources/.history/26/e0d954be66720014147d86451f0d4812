@@ -9,14 +9,8 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-import uk.ac.aber.dcs.bpt.cs21120.assignment1.IManager;
-
 public class SingleEliminationTest {
-	
-	private IManager manager;
 
-	SingleElimination classTest = new SingleElimation;
-	
 	public static ArrayList<String> readPlayers(String filename) throws FileNotFoundException {
         FileReader fr = new FileReader(filename);
         Scanner sc = new Scanner(fr);
@@ -28,10 +22,10 @@ public class SingleEliminationTest {
     }
 	
 	
+	
 	@Test
-	public void testSetPlayers(ArrayList<String> players) {
-		classTest.setPlayers(players);
-		assertNotNull(players);
+	public void testSetPlayers() {
+		fail("Not yet implemented");
 	}
 
 	@Test

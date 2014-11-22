@@ -9,11 +9,7 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-import uk.ac.aber.dcs.bpt.cs21120.assignment1.IManager;
-
 public class SingleEliminationTest {
-	
-	private IManager manager;
 
 	SingleElimination classTest = new SingleElimation;
 	
@@ -27,10 +23,25 @@ public class SingleEliminationTest {
         return players;
     }
 	
+	private ArrayQueue winnersQueue;
+	private ArrayQueue losersQueue;
+	boolean queueCompleted = false;
+	String matchedPlayer1;
+    String matchedPlayer2;
+    String posPlayer1 = "";
+	String posPlayer2 = "";
+	boolean winners;
 	
 	@Test
 	public void testSetPlayers(ArrayList<String> players) {
-		classTest.setPlayers(players);
+		winnersQueue = new ArrayQueue(players.size());
+		losersQueue = new ArrayQueue(players.size());
+		 for (String player : players) {
+			 winnersQueue.enQ(player);
+			 //System.out.println(player);
+		 }
+		 System.out.println("------------");
+	    
 		assertNotNull(players);
 	}
 

@@ -9,11 +9,7 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-import uk.ac.aber.dcs.bpt.cs21120.assignment1.IManager;
-
 public class SingleEliminationTest {
-	
-	private IManager manager;
 
 	SingleElimination classTest = new SingleElimation;
 	
