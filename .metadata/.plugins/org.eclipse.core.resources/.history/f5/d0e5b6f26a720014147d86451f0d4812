@@ -46,26 +46,21 @@ public class DoubleElimination implements IManager {
         if (losersQueue.length() == 1 && winnersQueue.length() == 1) {
                 matchedPlayer1 = (String)winnersQueue.deQ();
                 matchedPlayer2 = (String)losersQueue.deQ();
-                //After this match the queueCompleted must be true which ends the competition
                 queueCompleted = true;
-                //Defines that the result team is a winner
                 winners=true;
         }
         //If there are more players in the winners queue then make two from the winners queue have a match
         else if (winnersQueue.length() > losersQueue.length()) {
                 matchedPlayer1 = (String)winnersQueue.deQ();
                 matchedPlayer2 = (String)winnersQueue.deQ();
-                //Defines that the result team is a winner
                 winners=true;
         }
-        // Otherwise choose two from the losers queue to play
+        // Otherwise choose two from the losers queue to playe
         else {
                 matchedPlayer1 = (String)losersQueue.deQ();
                 matchedPlayer2 = (String)losersQueue.deQ();
-                //Defines that the result team is a winner
                 winners=false;
         }
-        //Create the match and put the teams in.
         Match match = new Match(matchedPlayer1,matchedPlayer2);
         return match;
 }

@@ -65,7 +65,6 @@ public class DoubleElimination implements IManager {
                 //Defines that the result team is a winner
                 winners=false;
         }
-        //Create the match and put the teams in.
         Match match = new Match(matchedPlayer1,matchedPlayer2);
         return match;
 }
