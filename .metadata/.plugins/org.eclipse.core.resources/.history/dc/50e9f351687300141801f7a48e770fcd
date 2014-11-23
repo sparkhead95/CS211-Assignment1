@@ -104,8 +104,7 @@ public class SingleEliminationTest {
 
 	@Test
 	public void testSetMatchWinnerIfPlayerIsFalse() {
-		// Empties the queue so that the competition must end and sets the player 2 to be the winner
-		// ensures that the test will pass if there is a winner as the winner will be placed in the queue so it will be not be null
+		// Empties the queue
 		Queue.clear();
 		manager.setMatchWinner(false);
 		assertNotNull("if a player has been set to win, this test should pass as the queue will not be null",Queue);
@@ -113,9 +112,7 @@ public class SingleEliminationTest {
 	
 	@Test
 	public void testGetPosition() {
-		// Checks that second place will be null because there is no runner up in singleelimination
 		assertNull("there is no runner up in singleelimination", manager.getPosition(1));
-		// Checks that the first place is not null as there must always be a winner
 		assertNotNull("must be a winner", manager.getPosition(0));
 	}
 

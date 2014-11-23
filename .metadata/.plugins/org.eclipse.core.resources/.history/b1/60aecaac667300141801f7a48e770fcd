@@ -79,33 +79,28 @@ public class SingleEliminationTest {
 	}
 	
 	public void testNextMatchTeamsArentSame() {
-		// Creates an instance of a next match and checks that the players are not the same 
+		
 		Match m = manager.nextMatch();
 		assertNotSame("Two players cannot be the same", m.getPlayer1() , m.getPlayer2());
 	}
 	
 	@Test
 	public void testNextMatchIsntLastMatch() {
-		// Creates an  instance of a match and then checks that it is not the same as the last match
 		Match m = manager.nextMatch();
 		assertNotSame("Two matches cannot be the same", m, manager.nextMatch());
 	}
 
+	
+	
 	@Test
 	public void testSetMatchWinnerIfThereAreNoPlayersLeftInQueue() {
-		// Clears the queue of teams and sets the player 1 to be the winner
-		// because the queue is empty, the program goes into the first if statement to set the queueCompleted variable to true.
-		// It then goes into the other if condition as the player1 boolean is set to true, and adds the winner to the queue
-		// This means that the queueCompleted variable should be false again, so this test should pass if it's false.
 		Queue.clear();
 		manager.setMatchWinner(true);
 		assertFalse("QueueCompleted must be true if there are no teams left in queue, but then must be false once the winner has been added to the queue", endComp);
 	}
 
 	@Test
-	public void testSetMatchWinnerIfPlayerIsFalse() {
-		// Empties the queue so that the competition must end and sets the player 2 to be the winner
-		// ensures that the test will pass if there is a winner as the winner will be placed in the queue so it will be not be null
+	public void testSetMatchWinnerIfPlayerIsFalse() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		Queue.clear();
 		manager.setMatchWinner(false);
 		assertNotNull("if a player has been set to win, this test should pass as the queue will not be null",Queue);
@@ -113,9 +108,7 @@ public class SingleEliminationTest {
 	
 	@Test
 	public void testGetPosition() {
-		// Checks that second place will be null because there is no runner up in singleelimination
 		assertNull("there is no runner up in singleelimination", manager.getPosition(1));
-		// Checks that the first place is not null as there must always be a winner
 		assertNotNull("must be a winner", manager.getPosition(0));
 	}
 

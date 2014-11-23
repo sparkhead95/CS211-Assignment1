@@ -113,9 +113,7 @@ public class SingleEliminationTest {
 	
 	@Test
 	public void testGetPosition() {
-		// Checks that second place will be null because there is no runner up in singleelimination
 		assertNull("there is no runner up in singleelimination", manager.getPosition(1));
-		// Checks that the first place is not null as there must always be a winner
 		assertNotNull("must be a winner", manager.getPosition(0));
 	}
 
