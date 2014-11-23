@@ -71,36 +71,52 @@ public class DoubleElimination implements IManager {
 }
 
 	public void setMatchWinner(boolean player1) {
+		// If the team comes from the winners queue
 		if (winners) {
+			// and the player passed in through the manager is true
 			if (player1) {
+				// Put local variable player 1 in the winners queue
 				winnersQueue.enQ(matchedPlayer1);
+				// else local player 2 in the losers queue
 				losersQueue.enQ(matchedPlayer2);
 			} else {
+				// Vice versa here- Put player 2 in winners queue if manager has said that player1 is false
 				winnersQueue.enQ(matchedPlayer2);
+				// and player one in the losers queue
 				losersQueue.enQ(matchedPlayer1);
 			}
+			// However if the team comes from the losers queue
 		} else {
+			// and player passed into the method is true- so player one is winner
 			if (player1) {
+				// put player 1 back in to the queue, discard player 2
 				losersQueue.enQ(matchedPlayer1);
-
+				// Otherwise put player 2 back in the queue and discard player 1
 			} else {
 				losersQueue.enQ(matchedPlayer2);
 
 			}
 		}
+		// Output how many teams are in each queue
         System.out.println("In the winners queue there are: " + winnersQueue.length());
         System.out.println("In the losers queue there are: " + losersQueue.length());
 
 	}
-
+	
+	
 	public String getPosition(int n) {
+		// If the tournament has ended:
 		if (queueCompleted == true) {
+			// Check the value of n
 			switch(n){
-			case 0: return (winnersQueue.deQ().toString());
-			case 1: return (losersQueue.deQ().toString());
+			// If it is 0, the manager wants the name of the team that came first
+				case 0: return (winnersQueue.deQ().toString());
+			// Else the name of the team that came second
+				case 1: return (losersQueue.deQ().toString());
 			}
 		}
-		else System.out.println("The game isn't finished...? Something went wrong.");
+		// Else the method has been called early and the game isn't finished.
+		else System.out.println("The game isn't finished.");
 		return null;
 	}
 	

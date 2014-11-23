@@ -1,0 +1,66 @@
+package uk.ac.aber.dcs.chh57.cs21120.assignment1;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+import uk.ac.aber.dcs.bpt.cs21120.assignment1.IManager;
+import uk.ac.aber.dcs.bpt.cs21120.assignment1.Match;
+import uk.ac.aber.dcs.bpt.cs21120.assignment1.NoNextMatchException;
+
+public class SingleElimination implements IManager {
+
+	private ArrayQueue totalPlayersQueue;
+	boolean queueCompleted = false;
+	String matchedPlayer1;
+    String matchedPlayer2;
+	
+	
+	public void setPlayers(ArrayList<String> players) {
+		 totalPlayersQueue = new ArrayQueue(players.size());
+		 for (String player : players) {
+			 totalPlayersQueue.enQ(player);
+			 //System.out.println(player);
+		 }
+		 System.out.println("------------");
+	          
+	}
+
+	public boolean hasNextMatch() {
+		if (totalPlayersQueue.length < 2){
+			return false;
+		}
+		else return true;
+		
+	}
+
+	public Match nextMatch() throws NoNextMatchException {
+		// Assign local variables for first and second current matched players
+		matchedPlayer1 = (String)totalPlayersQueue.deQ();
+		matchedPlayer2 = (String)totalPlayersQueue.deQ();
+		Match match = new Match(matchedPlayer1,matchedPlayer2);
+		return match;
+	}
+
+	public void setMatchWinner(boolean player1) {
+		if (totalPlayersQueue.length() == 0) {
+			queueCompleted = true;
+		}
+		
+		if (player1 == true){
+			totalPlayersQueue.enQ(matchedPlayer1);
+        }else{
+        	totalPlayersQueue.enQ(matchedPlayer2);           
+        }
+        System.out.println("Total amount of teams in the queue are: " + totalPlayersQueue.length());
+	}
+
+	public String getPosition(int n) {
+		if (n == 1){
+			return null;
+		}
+		return (totalPlayersQueue.deQ().toString());
+		
+		
+	}
+
+}
