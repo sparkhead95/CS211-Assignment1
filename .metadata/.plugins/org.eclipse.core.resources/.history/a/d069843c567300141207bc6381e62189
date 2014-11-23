@@ -17,7 +17,6 @@ public class SingleEliminationTest {
 	private ArrayList<String> teams;
 	private ArrayQueue Queue;
 	private boolean endComp;
-	private String player2;
 	
 	
 	@Before
@@ -76,9 +75,8 @@ public class SingleEliminationTest {
 	public void testSetMatchWinnerIfPlayerIsFalse() {
 		Queue.clear();
 		manager.setMatchWinner(false);
-		assertEquals("method should have returned matchedPlayer2 to be the winner", Queue.deQ().toString(), player2);
-		System.out.println(player2);
-	
+		manager.g
+		assertFalse("QueueCompleted must be true if there are no teams left in queue, but then must be false once the winner has been added to the queue", endComp);
 	}
 	
 	

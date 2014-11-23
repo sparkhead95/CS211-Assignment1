@@ -17,7 +17,6 @@ public class SingleEliminationTest {
 	private ArrayList<String> teams;
 	private ArrayQueue Queue;
 	private boolean endComp;
-	private String player2;
 	
 	
 	@Before
@@ -38,11 +37,8 @@ public class SingleEliminationTest {
         
         Field field2 = manager.getClass().getDeclaredField("queueCompleted");
         field2.setAccessible(true);
+        //boolean endComp = (boolean) field2.get("queueCompleted");
         endComp = (boolean) field2.getBoolean(manager);
-        
-        Field field3 = manager.getClass().getDeclaredField("matchedPlayer2");
-        field3.setAccessible(true);
-        player2 = (String) field3.get(manager);
 	}
 	
 	
@@ -72,17 +68,6 @@ public class SingleEliminationTest {
 		assertFalse("QueueCompleted must be true if there are no teams left in queue, but then must be false once the winner has been added to the queue", endComp);
 	}
 
-	@Test
-	public void testSetMatchWinnerIfPlayerIsFalse() {
-		Queue.clear();
-		manager.setMatchWinner(false);
-		assertEquals("method should have returned matchedPlayer2 to be the winner", Queue.deQ().toString(), player2);
-		System.out.println(player2);
-	
-	}
-	
-	
-	
 	@Test
 	public void testGetPosition() {
 		fail("Not yet implemented");
