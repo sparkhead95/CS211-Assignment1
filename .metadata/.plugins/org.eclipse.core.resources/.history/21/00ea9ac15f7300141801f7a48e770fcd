@@ -39,12 +39,16 @@ public class SingleEliminationTest {
         Field field2 = manager.getClass().getDeclaredField("queueCompleted");
         field2.setAccessible(true);
         endComp = (boolean) field2.getBoolean(manager);
+        
+        Field field3 = manager.getClass().getDeclaredField("matchedPlayer2");
+        field3.setAccessible(true);
+        player2 = (String) field3.get(manager);
 	}
 	
 	
 	@Test
 	public void testSetPlayers() {
-		assertNotNull("Cant have a .txt file with no teams in it",teams);
+		assertNotNull(teams);
 	}
 
 	@Test
@@ -54,25 +58,13 @@ public class SingleEliminationTest {
 	}
 
 	@Test
-	public void testNextMatchHasTwoTeams() {
+	public void testNextMatch() {
 		Match m = manager.nextMatch();
 		assertNotNull("Player 1 must have been assigned a team",m.getPlayer1());
-		assertNotNull("Player 2 must have been assigned a team",m.getPlayer2());
-	}
-	
-	public void testNextMatchTeamsArentSame() {
-		Match m = manager.nextMatch();
+		assertNotNull("Player 1 must have been assigned a team",m.getPlayer2());
 		assertNotSame("Two players cannot be the same", m.getPlayer1() , m.getPlayer2());
 	}
-	
-	@Test
-	public void testNextMatchIsntLastMatch() {
-		Match m = manager.nextMatch();
-		assertNotSame("Two matches cannot be the same", m, manager.nextMatch());
-	}
 
-	
-	
 	@Test
 	public void testSetMatchWinnerIfThereAreNoPlayersLeftInQueue() {
 		Queue.clear();
@@ -81,16 +73,18 @@ public class SingleEliminationTest {
 	}
 
 	@Test
-	public void testSetMatchWinnerIfPlayerIsFalse() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	public void testSetMatchWinnerIfPlayerIsFalse() {
 		Queue.clear();
 		manager.setMatchWinner(false);
-		assertNotNull("if a player has been set to win, this test should pass as the queue will not be null",Queue);
+		assertEquals("method should have returned matchedPlayer2 to be the winner", Queue.deQ().toString(), player2);
+	
 	}
+	
+	
 	
 	@Test
 	public void testGetPosition() {
-		assertNull("there is no runner up in singleelimination", manager.getPosition(1));
-		assertNotNull("must be a winner", manager.getPosition(0));
+		//fail("Not yet implemented");
 	}
 
 }

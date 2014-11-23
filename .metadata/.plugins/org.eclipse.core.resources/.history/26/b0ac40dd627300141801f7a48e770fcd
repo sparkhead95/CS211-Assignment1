@@ -54,15 +54,12 @@ public class SingleEliminationTest {
 	}
 
 	@Test
-	public void testNextMatchHasTwoTeams() {
+	public void testNextMatch() {
 		Match m = manager.nextMatch();
 		assertNotNull("Player 1 must have been assigned a team",m.getPlayer1());
 		assertNotNull("Player 2 must have been assigned a team",m.getPlayer2());
-	}
-	
-	public void testNextMatchTeamsArentSame() {
-		Match m = manager.nextMatch();
 		assertNotSame("Two players cannot be the same", m.getPlayer1() , m.getPlayer2());
+		assertNotSame("Two matches cannot be the same", m, manager.nextMatch());
 	}
 	
 	@Test
@@ -71,8 +68,6 @@ public class SingleEliminationTest {
 		assertNotSame("Two matches cannot be the same", m, manager.nextMatch());
 	}
 
-	
-	
 	@Test
 	public void testSetMatchWinnerIfThereAreNoPlayersLeftInQueue() {
 		Queue.clear();
@@ -86,6 +81,8 @@ public class SingleEliminationTest {
 		manager.setMatchWinner(false);
 		assertNotNull("if a player has been set to win, this test should pass as the queue will not be null",Queue);
 	}
+	
+	
 	
 	@Test
 	public void testGetPosition() {

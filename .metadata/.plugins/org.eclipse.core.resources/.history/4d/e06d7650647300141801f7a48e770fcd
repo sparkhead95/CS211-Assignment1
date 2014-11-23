@@ -87,6 +87,8 @@ public class SingleEliminationTest {
 		assertNotNull("if a player has been set to win, this test should pass as the queue will not be null",Queue);
 	}
 	
+	
+	
 	@Test
 	public void testGetPosition() {
 		assertNull("there is no runner up in singleelimination", manager.getPosition(1));
