@@ -37,8 +37,7 @@ public class SingleEliminationTest {
         
         Field field2 = manager.getClass().getDeclaredField("queueCompleted");
         field2.setAccessible(true);
-        //boolean endComp = (boolean) field2.get("queueCompleted");
-        endComp = (boolean) field2.getBoolean(manager);
+        endComp = (boolean) field2.get(manager);
 	}
 	
 	
@@ -65,7 +64,7 @@ public class SingleEliminationTest {
 	public void testSetMatchWinnerIfThereAreNoPlayersLeftInQueue() {
 		Queue.clear();
 		manager.setMatchWinner(true);
-		assertTrue("QueueCompleted must be true if there are no teams left in queue", endComp);
+		assertTrue("QueueCompleted must be true if there are no teams left in queue", );
 	}
 
 	@Test

@@ -35,10 +35,9 @@ public class SingleEliminationTest {
         field1.setAccessible(true);
         Queue = (ArrayQueue) field1.get(manager);
         
-        Field field2 = manager.getClass().getDeclaredField("queueCompleted");
+        Field field2 = manager.getClass().getDeclaredField("totalPlayersQueue");
         field2.setAccessible(true);
-        //boolean endComp = (boolean) field2.get("queueCompleted");
-        endComp = (boolean) field2.getBoolean(manager);
+        endComp = (Object) field2.get(manager);
 	}
 	
 	

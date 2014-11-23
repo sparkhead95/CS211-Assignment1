@@ -76,6 +76,10 @@ public class SingleElimination implements IManager {
 		
 		
 	}
-
+	
+	public boolean getQueueCompleted(){
+		return queueCompleted;
+		
+	}
 
 }

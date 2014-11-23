@@ -65,7 +65,7 @@ public class SingleEliminationTest {
 	public void testSetMatchWinnerIfThereAreNoPlayersLeftInQueue() {
 		Queue.clear();
 		manager.setMatchWinner(true);
-		assertTrue("QueueCompleted must be true if there are no teams left in queue", endComp);
+		assertTrue("QueueCompleted must be true if there are no teams left in queue", );
 	}
 
 	@Test

@@ -16,7 +16,6 @@ public class SingleEliminationTest {
 	private IManager manager;
 	private ArrayList<String> teams;
 	private ArrayQueue Queue;
-	private boolean endComp;
 	
 	
 	@Before
@@ -31,14 +30,9 @@ public class SingleEliminationTest {
 		manager = IManagerFactory.getManager("uk.ac.aber.dcs.chh57.cs21120.assignment1.SingleElimination");
 		manager.setPlayers(teams);
 		
-		Field field1 = manager.getClass().getDeclaredField("totalPlayersQueue");
-        field1.setAccessible(true);
-        Queue = (ArrayQueue) field1.get(manager);
-        
-        Field field2 = manager.getClass().getDeclaredField("queueCompleted");
-        field2.setAccessible(true);
-        //boolean endComp = (boolean) field2.get("queueCompleted");
-        endComp = (boolean) field2.getBoolean(manager);
+		Field field = manager.getClass().getDeclaredField("totalPlayersQueue");
+        field.setAccessible(true);
+        Queue = (ArrayQueue) field.get(manager);
 	}
 	
 	
@@ -65,7 +59,7 @@ public class SingleEliminationTest {
 	public void testSetMatchWinnerIfThereAreNoPlayersLeftInQueue() {
 		Queue.clear();
 		manager.setMatchWinner(true);
-		assertTrue("QueueCompleted must be true if there are no teams left in queue", endComp);
+		assertTrue("QueueCompleted must be true if there are no teams left in queue", manager.setMatchWinner(player1);)
 	}
 
 	@Test
