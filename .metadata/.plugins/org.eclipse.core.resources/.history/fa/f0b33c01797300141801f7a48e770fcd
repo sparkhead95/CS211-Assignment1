@@ -134,9 +134,10 @@ public class DoubleEliminationTest {
 	}
 
 	@Test
-	public void testGetPosition(){
-		// Because the queue isnt completed, this method should return null
-		assertNull("queue not complete", manager.getPosition(0));
+	public void testGetPosition() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+		assertNull("there is no runner up in singleelimination", manager.getPosition(0));
+		
+		//assertNotNull("must be a winner", manager.getPosition(0));
 	}
 
 }

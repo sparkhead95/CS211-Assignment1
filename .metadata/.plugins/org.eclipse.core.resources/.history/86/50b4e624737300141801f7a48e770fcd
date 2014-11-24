@@ -27,7 +27,6 @@ public class DoubleEliminationTest {
 	// Create variable to recognise when the competition has been completed
 	private boolean endComp;
 	private String examplePlayer;
-	private String examplePlayer2;
 	
 	
 		
@@ -67,13 +66,6 @@ public class DoubleEliminationTest {
         field4.setAccessible(true);
         // assign it to a local variable
         examplePlayer = (String) field4.get(manager);
-        
-     // Reflection code to get the "queueCompleted" from the IManager
-        Field field5 = manager.getClass().getDeclaredField("matchedPlayer2");
-        // Set the variable to accessible
-        field5.setAccessible(true);
-        // assign it to a local variable
-        examplePlayer2 = (String) field5.get(manager);
 	}
 	
 	@Test
@@ -134,9 +126,22 @@ public class DoubleEliminationTest {
 	}
 
 	@Test
-	public void testGetPosition(){
-		// Because the queue isnt completed, this method should return null
-		assertNull("queue not complete", manager.getPosition(0));
+	public void testGetPosition() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+		winQueue.clear();
+		winQueue.enQ(examplePlayer);
+		lossQueue.clear();
+		lossQueue.enQ(examplePlayer);
+		manager.nextMatch();
+		manager.setMatchWinner(true);
+		Field field1 = manager.getClass().getDeclaredField("winnersQueue");
+		// Set the variable to accessible
+		field1.setAccessible(true);
+		// assign it to a local variable
+		winQueue = (ArrayQueue) field1.get(manager);
+		assertEquals("Should return position of player at position 1 in winners queue", manager.getPosition(0), winQueue.deQ().toString());
+		//assertNull("there is no runner up in singleelimination", manager.getPosition(1));
+		
+		//assertNotNull("must be a winner", manager.getPosition(0));
 	}
 
 }
