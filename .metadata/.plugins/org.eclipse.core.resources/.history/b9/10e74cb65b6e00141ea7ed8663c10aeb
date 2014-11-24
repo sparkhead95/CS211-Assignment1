@@ -1,9 +1,0 @@
-package uk.ac.aber.dcs.chh57.cs21120.assignment1;
-
-public class ArrayQueue implements IQueue { 
-	 Object[] queue; 
-	 int head, tail, length; 
-	 public ArrayQueue(int startsize) { 
-	 queue = new Object[startsize]; 
-	 head = tail = length = 0; 
-}

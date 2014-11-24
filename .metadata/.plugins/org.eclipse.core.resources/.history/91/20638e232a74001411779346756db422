@@ -75,7 +75,7 @@ public class BubbleEliminationTest {
 	@Test
 	public void testSetPlayersDoesntAffectUnAddedQueue() {
 		// Check that the program doesn't make the main queue be the same as the unAdded queue at any time before the matches are set
-		assertNotSame("main queue can't be the same as unadded queue before matches begin", mainQueue, unAddedQueue);
+		assertNotSame("winners can't be the same as losers before matches begin", mainQueue, unAddedQueue);
 	}
 	
 	@Test
@@ -98,13 +98,13 @@ public class BubbleEliminationTest {
 		// Set the conditions so that the setMatchWinner goes into the correct if statement for testing
 		unAddedQueue.clear();
 		manager.setMatchWinner(true);
-		// Reflection code to get the "unAddedQueue" from the IManager
+		// Reflection code to get the "winnersQueue" from the IManager
 		Field field1 = manager.getClass().getDeclaredField("unAddedQueue");
 		// Set the variable to accessible
 		field1.setAccessible(true);
 		// assign it to a local variable
 		unAddedQueue = (ArrayQueue) field1.get(manager);
-		assertEquals("'unAdded' should still be false so the winners queue should not be touched in this if statement", unAddedQueue.length(), 0);
+		assertEquals("'winners' should still be false so the winners queue should not be touched in this if statement", unAddedQueue.length(), 0);
 	}
 
 	@Test

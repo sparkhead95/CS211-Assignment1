@@ -104,7 +104,7 @@ public class BubbleEliminationTest {
 		field1.setAccessible(true);
 		// assign it to a local variable
 		unAddedQueue = (ArrayQueue) field1.get(manager);
-		assertEquals("'unAdded' should still be false so the winners queue should not be touched in this if statement", unAddedQueue.length(), 0);
+		assertEquals("'winners' should still be false so the winners queue should not be touched in this if statement", unAddedQueue.length(), 0);
 	}
 
 	@Test

@@ -145,18 +145,18 @@ public class BubbleElimination implements IManager {
 
 	public String getPosition(int n) {
 		// If the tournament has ended:
-			if (queueCompleted == true) {
-				// Check the value of n
-				switch(n){
+				if (queueCompleted == true) {
+					// Check the value of n
+					switch(n){
 					// If it is 0, the manager wants the name of the team that came first
-					case 0: return (winnersLine[0]);
+						case 0: return (winnersLine[0]);
 					// Else the name of the team that came second
-					case 1: return (winnersLine[1]);
+						case 1: return (winnersLine[1]);
+					}
 				}
-			}
-			// Else the method has been called early and the game isn't finished.
-			else System.out.println("The game isn't finished.");
-			return null;
+				// Else the method has been called early and the game isn't finished.
+				else System.out.println("The game isn't finished.");
+				return null;
 	}
 
 }
