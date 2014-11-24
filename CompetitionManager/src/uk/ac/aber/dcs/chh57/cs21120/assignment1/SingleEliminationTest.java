@@ -29,7 +29,7 @@ public class SingleEliminationTest {
 	public void preReqs() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
 		// Attempt to store the teams.txt in a local variable. this can throw errors, so placed it in tryCatch loop
 		try{
-			teams = CompetitionManager.readPlayers("M:\\CS211-Assignment1\\CompetitionManager\\src\\uk\\ac\\aber\\dcs\\chh57\\cs21120\\assignment1\\Teams.txt");
+			teams = CompetitionManager.readPlayers("C:\\Users\\Christian\\Documents\\Coding\\CS211\\CompetitionManager\\src\\uk\\ac\\aber\\dcs\\chh57\\cs21120\\assignment1\\Teams.txt");
 		}
 		catch(IOException e){
 			System.out.println("system error:" + e);
