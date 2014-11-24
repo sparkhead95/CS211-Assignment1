@@ -91,7 +91,6 @@ public class DoubleEliminationTest {
 	@Test
 	public void testNextMatchIfLossAndWinIsOne() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		// Creates an instance of a next match and checks that the player 1 and 2 variables are assigned values
-		// make it so that there is only one team in the queue so that it goes into the correct if statement
 		winQueue.clear();
 		winQueue.enQ(examplePlayer);
 		lossQueue.clear();
@@ -115,7 +114,6 @@ public class DoubleEliminationTest {
 	
 	@Test
 	public void testSetMatchWinner() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		// Set the conditions so that the setMatchWinner goes into the correct if statement for testing
 		winQueue.clear();
 		manager.setMatchWinner(true);
 		// Reflection code to get the "winnersQueue" from the IManager

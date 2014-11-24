@@ -26,7 +26,9 @@ public class DoubleEliminationTest {
 	private ArrayQueue lossQueue;
 	// Create variable to recognise when the competition has been completed
 	private boolean endComp;
-	private String examplePlayer;	
+	private String examplePlayer;
+	private String examplePlayer2;
+	
 	
 		
 	//create method to handle variables that need to be created to allow the tests to work
@@ -66,6 +68,12 @@ public class DoubleEliminationTest {
         // assign it to a local variable
         examplePlayer = (String) field4.get(manager);
         
+     // Reflection code to get the "queueCompleted" from the IManager
+        Field field5 = manager.getClass().getDeclaredField("matchedPlayer2");
+        // Set the variable to accessible
+        field5.setAccessible(true);
+        // assign it to a local variable
+        examplePlayer2 = (String) field5.get(manager);
 	}
 	
 	@Test
@@ -91,7 +99,6 @@ public class DoubleEliminationTest {
 	@Test
 	public void testNextMatchIfLossAndWinIsOne() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		// Creates an instance of a next match and checks that the player 1 and 2 variables are assigned values
-		// make it so that there is only one team in the queue so that it goes into the correct if statement
 		winQueue.clear();
 		winQueue.enQ(examplePlayer);
 		lossQueue.clear();
@@ -115,7 +122,6 @@ public class DoubleEliminationTest {
 	
 	@Test
 	public void testSetMatchWinner() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		// Set the conditions so that the setMatchWinner goes into the correct if statement for testing
 		winQueue.clear();
 		manager.setMatchWinner(true);
 		// Reflection code to get the "winnersQueue" from the IManager
