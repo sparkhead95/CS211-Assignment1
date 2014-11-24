@@ -1,0 +1,48 @@
+package uk.ac.aber.dcs.chh57.cs21120.assignment1;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import org.junit.Test;
+
+import uk.ac.aber.dcs.bpt.cs21120.assignment1.IManager;
+
+public class DoubleEliminationTest {
+
+		// Create instance of the elimination method
+		private IManager manager;
+		// Create a local variable for the teams.txt
+		private ArrayList<String> teams;
+		// The below two variables are used for reflection, for when methods do not return a value that we need
+		// Create local variable to store the queue that is active within the Imanager in use
+		private ArrayQueue Queue;
+		// Create variable to recognise when the competition has been completed
+		private boolean endComp;
+	
+	@Test
+	public void testSetPlayers() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testHasNextMatch() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testNextMatch() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testSetMatchWinner() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetPosition() {
+		fail("Not yet implemented");
+	}
+
+}

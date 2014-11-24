@@ -122,7 +122,7 @@ public class DoubleEliminationTest {
 		field1.setAccessible(true);
 		// assign it to a local variable
 		winQueue = (ArrayQueue) field1.get(manager);
-		assertEquals("'winners' should still be false so the winners queue should not be touched in this if statement", winQueue.length(), 0);
+		assertNull("wwinners should still be false so the winners queue should not be touched in this if statement", winQueue);
 	}
 
 	@Test

@@ -113,16 +113,8 @@ public class DoubleEliminationTest {
 	}
 	
 	@Test
-	public void testSetMatchWinner() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		winQueue.clear();
-		manager.setMatchWinner(true);
-		// Reflection code to get the "winnersQueue" from the IManager
-		Field field1 = manager.getClass().getDeclaredField("winnersQueue");
-		// Set the variable to accessible
-		field1.setAccessible(true);
-		// assign it to a local variable
-		winQueue = (ArrayQueue) field1.get(manager);
-		assertEquals("'winners' should still be false so the winners queue should not be touched in this if statement", winQueue.length(), 0);
+	public void testSetMatchWinner() {
+		fail("Not yet implemented");
 	}
 
 	@Test

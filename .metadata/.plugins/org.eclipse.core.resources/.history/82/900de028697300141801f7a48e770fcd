@@ -1,0 +1,84 @@
+package uk.ac.aber.dcs.chh57.cs21120.assignment1;
+
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import uk.ac.aber.dcs.bpt.cs21120.assignment1.CompetitionManager;
+import uk.ac.aber.dcs.bpt.cs21120.assignment1.IManager;
+import uk.ac.aber.dcs.bpt.cs21120.assignment1.IManagerFactory;
+
+public class DoubleEliminationTest {
+
+	// Create instance of the elimination method
+	private IManager manager;
+	// Create a local variable for the teams.txt
+	private ArrayList<String> teams;
+	// The below two variables are used for reflection, for when methods do not return a value that we need
+	// Create local variable to store the queue that is active within the Imanager in use
+	private ArrayQueue Queue;
+	// Create variable to recognise when the competition has been completed
+	private boolean endComp;
+		
+	//create method to handle variables that need to be created to allow the tests to work
+	@Before
+	public void preReqs() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
+		// Attempt to store the teams.txt in a local variable. this can throw errors, so placed it in tryCatch loop
+		try{
+			teams = CompetitionManager.readPlayers("M:\\CS211-Assignment1\\CompetitionManager\\src\\uk\\ac\\aber\\dcs\\chh57\\cs21120\\assignment1\\Teams.txt");
+		}
+		catch(IOException e){
+			System.out.println("system error:" + e);
+		}
+		
+		// Define where the IManager in use is
+		manager = IManagerFactory.getManager("uk.ac.aber.dcs.chh57.cs21120.assignment1.DoubleElimination");
+		// Set the teams to the teams contained in the .txt we are using in the tryCatch above
+		manager.setPlayers(teams);
+		
+		// Reflection code to get the "totalPlayersQueue" from the IManager
+		Field field1 = manager.getClass().getDeclaredField("totalPlayersQueue");
+		// Set the variable to accessible
+        field1.setAccessible(true);
+        // assign it to a local variable
+        Queue = (ArrayQueue) field1.get(manager);
+        
+        // Reflection code to get the "queueCompleted" from the IManager
+        Field field2 = manager.getClass().getDeclaredField("queueCompleted");
+        // Set the variable to accessible
+        field2.setAccessible(true);
+        // assign it to a local variable
+        endComp = (boolean) field2.getBoolean(manager);
+	}
+	
+	@Test
+	public void testSetPlayers() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testHasNextMatch() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testNextMatch() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testSetMatchWinner() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetPosition() {
+		fail("Not yet implemented");
+	}
+
+}
