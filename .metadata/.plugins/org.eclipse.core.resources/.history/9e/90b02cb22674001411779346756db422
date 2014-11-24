@@ -1,0 +1,151 @@
+package uk.ac.aber.dcs.chh57.cs21120.assignment1;
+
+import java.util.ArrayList;
+
+import uk.ac.aber.dcs.bpt.cs21120.assignment1.IManager;
+import uk.ac.aber.dcs.bpt.cs21120.assignment1.Match;
+import uk.ac.aber.dcs.bpt.cs21120.assignment1.NoNextMatchException;
+
+public class BubbleElimination implements IManager {
+	
+	//create the two queues that the teams will be placed in
+	private ArrayQueue mainQueue;
+	private ArrayQueue unAddedQueue;
+	//create the variable to define whether the competition has finished
+	boolean queueCompleted = false;
+	//local variables for the teams playing
+	String matchedPlayer1;
+    String matchedPlayer2;
+    // Array that holds the overall winners
+    String[] winnersLine;
+    
+    //boolean to define whether the teams have been entered into the queue yet or not
+	boolean unAdded;
+	// Boolean to define which team won a game or not so we can figure whether to put them in the overall winners array
+	boolean oneWonOne;
+	boolean twoWonOne;
+
+	public void setPlayers(ArrayList<String> players) {
+		//Instantiate the queues/arrays and define their size
+		mainQueue = new ArrayQueue(players.size());
+		unAddedQueue = new ArrayQueue(players.size());
+		winnersLine = new String[players.size()];
+		//For each player in players add it to the unaddedqueue at the start
+		 for (String player : players) {
+			 unAddedQueue.enQ(player);
+			 //System.out.println(player);
+		 }
+		 System.out.println("------------");
+			    
+
+	}
+
+	public boolean hasNextMatch() {
+		//If there is only one team left in the queue or queueCompleted is true then there cannot be a next match
+		if ((unAddedQueue.length() < 1) || (queueCompleted)){
+			return false;
+		}
+		else return true;
+	}
+
+	public Match nextMatch() throws NoNextMatchException {
+		// take both teams from the unadded queue if no teams are in the main queue yet
+        if (mainQueue.length() == 0) {
+                matchedPlayer1 = (String)unAddedQueue.deQ();
+                matchedPlayer2 = (String)unAddedQueue.deQ();
+                // shows the program that both teams have not been in the main queue before
+                // so that we can identify the start of the competition
+                unAdded=true;
+                // neither team have won one before
+                oneWonOne = false;
+                twoWonOne = false;
+        }
+        // if there are more than two or equal to 2 teams in the main queue then take one from unadded and use one from the main
+        else if (mainQueue.length() >= 2) {
+                matchedPlayer1 = (String)unAddedQueue.deQ();
+                matchedPlayer2 = (String)mainQueue.deQ();
+                //identifies that this is not the start of the competition
+                unAdded = false;
+                // indentifies that player 1 might have won one before if they are in the main queue already
+                oneWonOne = false;
+                twoWonOne = true;
+        }
+        else if (mainQueue.length() == 1) {
+        	//if there is one team in the main queue there must have been an error as another must always be added after
+           System.out.println("Something went wrong. The main queue is of length 1 which means that an unadded team was not added.");
+           System.exit(1);
+        }
+        // if unaddedqueue.length is 1 this means the competition is over 
+        else if (unAddedQueue.length() == 1) {
+        	matchedPlayer1 = (String)unAddedQueue.deQ();
+            matchedPlayer2 = (String)mainQueue.deQ();
+            unAdded = false;
+            oneWonOne = false;
+            twoWonOne = true;
+            queueCompleted=true;
+         }
+        
+        //Create the match and put the teams in.
+        Match match = new Match(matchedPlayer1,matchedPlayer2);
+        return match;
+	}
+
+	public void setMatchWinner(boolean player1) {
+		// If the teams have not yet had a game
+			if (unAdded) {
+				mainQueue.enQ(matchedPlayer1);
+				mainQueue.enQ(matchedPlayer2);
+				// and the player passed in through the manager is true
+				if (player1) {
+					oneWonOne = true;
+					twoWonOne = false;
+				} else {
+					oneWonOne = false;
+					twoWonOne = true;
+				}
+				// However if the team comes from the losers queue
+			} else {
+				// and player passed into the method is true- so player one is winner
+				if (player1) {
+					if (oneWonOne){
+						unAdded = false;
+						winnersLine[0].equals(matchedPlayer1);
+					}
+					else{
+						mainQueue.enQ(matchedPlayer1);
+					}
+				} else {
+					if (twoWonOne){
+						unAdded = false;
+						winnersLine[0].equals(matchedPlayer2);
+					}
+					else{
+						mainQueue.enQ(matchedPlayer2);
+					}
+				}
+				// Output how many teams are in each queue
+		        System.out.println("In the main queue there are: " + mainQueue.length());
+		        System.out.println("In the unadded queue there are: " + unAddedQueue.length());
+		        System.out.println("In the winners line there are: " + winnersLine.length);
+			}
+		        
+
+	}
+
+	public String getPosition(int n) {
+		// If the tournament has ended:
+				if (queueCompleted == true) {
+					// Check the value of n
+					switch(n){
+					// If it is 0, the manager wants the name of the team that came first
+						case 0: return (winnersLine[0]);
+					// Else the name of the team that came second
+						case 1: return (winnersLine[1]);
+					}
+				}
+				// Else the method has been called early and the game isn't finished.
+				else System.out.println("The game isn't finished.");
+				return null;
+	}
+
+}
